@@ -28,8 +28,8 @@ namespace TwitchCounter
             }
             else
             {
-                File.Create("count.txt");
                 MessageBox.Show("Thanks for using Twitch Counter! A file named count.txt was created and placed in the same directory as the exe file for this application. This .txt file contains the current number counted and can be used within StreamLabs or any streaming software that allows you to display the contents of a text file on-stream.", "First Launch");
+                File.WriteAllText(ExeDir + "\\count.txt", "0");
             }
 
             bool parse = int.TryParse(File.ReadAllText(ExeDir + "\\count.txt"), out intTextFileCount);
