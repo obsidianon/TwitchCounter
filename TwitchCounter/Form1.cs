@@ -5,6 +5,8 @@ namespace TwitchCounter
     {
         public int intCount;
         public int intSet;
+        public int intSetMax = 2147483647;
+
         public bool boolParse;
 
         public int intTextFileCount; 
@@ -66,8 +68,15 @@ namespace TwitchCounter
 
         private void buttonPlus_Click(object sender, EventArgs e)
         {
-            intCount += 1;
-            updateCount();
+            if (intCount == intSetMax)
+            {
+                MessageBox.Show("Can't count higher than " + intSetMax.ToString("N0"), "Error");
+            }
+            else
+            {
+                intCount += 1;
+                updateCount();
+            }
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
@@ -91,17 +100,13 @@ namespace TwitchCounter
             boolParse = int.TryParse(textBoxSet.Text, out intSet);
             if (boolParse == true)
             {
-                DialogResult dialogResult = MessageBox.Show("Set counter to " + intSet.ToString() + "?", "Set?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    intCount = intSet;
-                    updateCount();
-                    textBoxSet.Text = "";
-                }
+                intCount = intSet;
+                updateCount();
+                textBoxSet.Text = "";
             }
             else
             {
-                MessageBox.Show("Please ensure the value in the text box next to the set button is a valid integer.", "Error");
+                MessageBox.Show("Please ensure the value in the text box next to the set button is a valid integer no greater than " + intSetMax.ToString("N0"), "Error");
                 textBoxSet.Text = "";
             }
         }
