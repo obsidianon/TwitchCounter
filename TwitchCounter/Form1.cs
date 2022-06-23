@@ -52,6 +52,31 @@ namespace TwitchCounter
             textBoxCount.Text = intCount.ToString("N0");
 
             File.WriteAllText(ExeDir + "\\count.txt", intCount.ToString());
+
+            EasterEggs();
+        }
+
+        private void EasterEggs()
+        {
+            labelEasterEgg.Visible = true;
+
+            if (intCount == 69)
+            {
+                labelEasterEgg.Text = "Nice";
+            }
+            else if (intCount == 420)
+            {
+                labelEasterEgg.Text = "Blaze it dude!";
+            }
+            else if (intCount == 666)
+            {
+                labelEasterEgg.Text = "\\m/";
+            }
+            else
+            {
+                labelEasterEgg.Text = "";
+                labelEasterEgg.Visible = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

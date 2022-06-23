@@ -34,6 +34,7 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.textBoxSet = new System.Windows.Forms.TextBox();
             this.buttonSet = new System.Windows.Forms.Button();
+            this.labelEasterEgg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxCount
@@ -91,11 +92,21 @@
             this.buttonSet.UseVisualStyleBackColor = true;
             this.buttonSet.Click += new System.EventHandler(this.buttonSet_Click);
             // 
+            // labelEasterEgg
+            // 
+            this.labelEasterEgg.AutoSize = true;
+            this.labelEasterEgg.Location = new System.Drawing.Point(85, 176);
+            this.labelEasterEgg.Name = "labelEasterEgg";
+            this.labelEasterEgg.Size = new System.Drawing.Size(38, 15);
+            this.labelEasterEgg.TabIndex = 6;
+            this.labelEasterEgg.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(243, 192);
+            this.Controls.Add(this.labelEasterEgg);
             this.Controls.Add(this.buttonSet);
             this.Controls.Add(this.textBoxSet);
             this.Controls.Add(this.buttonReset);
@@ -118,5 +129,6 @@
         private Button buttonReset;
         private TextBox textBoxSet;
         private Button buttonSet;
+        private Label labelEasterEgg;
     }
 }
